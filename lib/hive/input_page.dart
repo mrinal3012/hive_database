@@ -63,15 +63,24 @@ class _InputPageState extends State<InputPage> {
                                   
                                 ),
                                 SizedBox(height: 20,),
-                                ElevatedButton(onPressed: () {
-                                  _countryBox!.putAt(index, _UController.text);
-                                  Navigator.of(context).pop();
-                                }, child: Text("Add Card"))
+                                Row(
+                                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                                  children: [
+                                    ElevatedButton(onPressed: () {
+                                      _countryBox!.deleteAt(index);
+                                    }, child: Text("Delete")),
+
+                                    ElevatedButton(onPressed: () {
+                                      _countryBox!.putAt(index, _UController.text);
+                                      Navigator.of(context).pop();
+                                    }, child: Text("Add Card"))
+                                  ],
+                                )
                               ]),);
                           }, icon:Icon(Icons.edit)),
                           SizedBox(width: 10,),
                           IconButton(onPressed: () {
-                            _countryBox!.delete(index);
+                            _countryBox!.deleteAt(index);
                           }, icon:Icon(Icons.delete)),
                         ],
                       )),
