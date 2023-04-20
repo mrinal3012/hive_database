@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:hive_database/hive/data_page.dart';
+import 'package:hive_database/hive/input_page.dart';
 import 'package:hive_flutter/adapters.dart';
 
 Future <void> main() async {
@@ -26,7 +27,7 @@ class MyApp extends StatelessWidget {
 
         primarySwatch: Colors.blue,
       ),
-      home: DataPage(),
+      home: InputPage(),
     );
   }
 }
