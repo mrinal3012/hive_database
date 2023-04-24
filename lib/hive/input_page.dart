@@ -10,7 +10,9 @@ class InputPage extends StatefulWidget {
 
 class _InputPageState extends State<InputPage> {
 
-  TextEditingController _TController =TextEditingController();
+  TextEditingController _PoemName =TextEditingController();
+  TextEditingController _PoemWriterName =TextEditingController();
+  TextEditingController _CountryDetails=TextEditingController();
   TextEditingController _UController=TextEditingController();
 
   Box? _countryBox;
@@ -30,11 +32,17 @@ class _InputPageState extends State<InputPage> {
       body: Column(children: [
         SizedBox(height: 20,),
         TextField(
-          controller: _TController,
+          controller: _PoemName,
           decoration: InputDecoration(border: OutlineInputBorder(borderRadius: BorderRadius.circular(12))),
         ),
+
+        TextField(
+          controller: _CountryDetails,
+          decoration: InputDecoration(border: OutlineInputBorder(borderRadius: BorderRadius.circular(12))),
+
+        ),
         ElevatedButton(onPressed: () {
-          final dataUser=_TController.text;
+          final dataUser=_PoemName.text;
           _countryBox!.add(dataUser);
         }, child: Text("Add Country Name")),
         Spacer(),
