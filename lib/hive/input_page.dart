@@ -12,7 +12,7 @@ class _InputPageState extends State<InputPage> {
 
   TextEditingController _PoemName =TextEditingController();
   TextEditingController _PoemWriterName =TextEditingController();
-  TextEditingController _CountryDetails=TextEditingController();
+  TextEditingController _Poem=TextEditingController();
   TextEditingController _UController=TextEditingController();
 
   Box? _countryBox;
@@ -33,14 +33,22 @@ class _InputPageState extends State<InputPage> {
         SizedBox(height: 20,),
         TextField(
           controller: _PoemName,
-          decoration: InputDecoration(border: OutlineInputBorder(borderRadius: BorderRadius.circular(12))),
+          decoration: InputDecoration(hintText: "Poem Name", border: OutlineInputBorder(borderRadius: BorderRadius.circular(12))),
         ),
-
+        SizedBox(height: 20,),
         TextField(
-          controller: _CountryDetails,
-          decoration: InputDecoration(border: OutlineInputBorder(borderRadius: BorderRadius.circular(12))),
+          controller: _PoemWriterName,
+          decoration: InputDecoration(hintText: "Poem Writer Name", border: OutlineInputBorder( borderRadius: BorderRadius.circular(12))),
+        ),
+        SizedBox(height: 20,),
+        TextField(
+          minLines: 2,
+          maxLines: 50,
+          controller: _Poem,
+          decoration: InputDecoration(hintText: "Write Poem",border: OutlineInputBorder(borderRadius: BorderRadius.circular(12))),
 
         ),
+        SizedBox(height: 20,),
         ElevatedButton(onPressed: () {
           final dataUser=_PoemName.text;
           _countryBox!.add(dataUser);
