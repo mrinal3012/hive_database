@@ -17,10 +17,14 @@ class _InputPageState extends State<InputPage> {
 
   Box? _countryBox;
 
+  Box? _countryNameBox;
+
   @override
   void initState() {
 
     _countryBox= Hive.box("Country_list");
+
+    _countryNameBox=Hive.box("Writer_name");
     // TODO: implement initState
     super.initState();
   }
@@ -50,8 +54,13 @@ class _InputPageState extends State<InputPage> {
         ),
         SizedBox(height: 20,),
         ElevatedButton(onPressed: () {
-          final dataUser=_PoemName.text;
-          _countryBox!.add(dataUser);
+          final dataUserPoemName=_PoemName.text;
+          _countryBox!.add(dataUserPoemName);
+
+          final dataUserPoemWriterName=_PoemWriterName.text;
+          _countryNameBox!.add(dataUserPoemWriterName);
+
+
         }, child: Text("Add Country Name")),
         Spacer(),
         ValueListenableBuilder(
@@ -65,7 +74,11 @@ class _InputPageState extends State<InputPage> {
                     padding: const EdgeInsets.all(8.0),
                     child: ListTile(
                       shape: OutlineInputBorder(borderRadius: BorderRadius.circular(12)),
-                      title: Text("${_countryBox!.getAt(index)}"),
+                      title:Column(children: [
+                        Text("${_countryNameBox!.getAt(index)}"),
+                        // Text("${_countryBox!.getAt(index)}"),
+
+                      ],),
                       trailing: Container(width: 130,child: Row(
                         children: [
                           IconButton(onPressed: () {
